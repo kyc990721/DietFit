@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "913210527415",
+    "project_id": "health-app-database-13dbf",
+    "storage_bucket": "health-app-database-13dbf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913210527415:android:78909db9896db002a88732",
+        "android_client_info": {
+          "package_name": "com.example.ditfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913210527415-ivthvp3f2tmg6kurnfm63iag08fq11rr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC72tM0Cu5-LEB7wfysHpSy2Il4SnAhiXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913210527415-ivthvp3f2tmg6kurnfm63iag08fq11rr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
