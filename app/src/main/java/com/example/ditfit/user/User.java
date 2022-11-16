@@ -1,9 +1,10 @@
-package com.example.ditfit;
+package com.example.ditfit.user;
 
 public class User {
     String name; //유저 이름
     String email; //유저 이메일
     String exercise; //운동 이름
+    String uid; //현재 사용자(로그인한)
 
     public User() {
     } // 생성자 메서드
@@ -28,8 +29,9 @@ public class User {
 
 
     //값을 추가할때 쓰는 함수
-    public User(String name,String email) {
+    public User(String name,String email,String uid) {
         this.name = name;
         this.email = email;
+        this.uid = uid;
     }
 }

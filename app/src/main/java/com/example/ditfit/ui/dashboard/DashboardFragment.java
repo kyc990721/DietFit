@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.ditfit.WorkoutPlanChoose;
 import com.example.ditfit.databinding.FragmentDashboardBinding;
 
 import java.text.SimpleDateFormat;
@@ -53,15 +52,16 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
                     textView.setText(month+"월 "+dayOfMonth+"일");
+
             }
         });
-        workoutPlan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), WorkoutPlanChoose.class);
-                startActivity(intent);
-            }
-        });
+//        workoutPlan.setOnClickListener(new View.OnClickListener() { //임시
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), WorkoutPlanChoose.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 

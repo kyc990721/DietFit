@@ -1,4 +1,4 @@
-package com.example.ditfit;
+package com.example.ditfit.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ditfit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -64,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // 회원가입 성공시
                             Toast.makeText(SignUpActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                            addUser(name.toString(),email.toString());
+                            addUser(name.toString(),email.toString(),firebaseAuth.getUid().toString());
                             finish();
                         } else {
                             // 계정이 중복된 경우
@@ -73,15 +74,15 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
     }
-    public void addUser(String name,String email) {
+    public void addUser(String name,String email,String uid) {
 
         //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능합니다.
 
         //User.java에서 선언했던 함수.
-        User user = new User(name,email);
+        User user = new User(name,email,uid);
 
-        databaseReference.child(name).setValue(email); //데이터 추가
-
+        databaseReference.child("Users").child(uid).child("Name").setValue(name); //유저 이름 데이터 추가
+        databaseReference.child("Users").child(uid).child("Email").setValue(email); //유저 이메일 데이터 추가
     }
 }
 

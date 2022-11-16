@@ -1,4 +1,4 @@
-package com.example.ditfit;
+package com.example.ditfit.user;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ditfit.MainActivity;
+import com.example.ditfit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
