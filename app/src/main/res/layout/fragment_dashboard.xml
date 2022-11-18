@@ -4,24 +4,222 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.dashboard.DashboardFragment">
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/selectedDayOfMonth"
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:orientation="vertical">
+    <SearchView
+        android:id="@+id/health_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:iconifiedByDefault="false"
+        android:queryHint="찾으시는 운동을 검색하세요"
+        android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/WokoutPlan"
+    <!--가로 스크롤바-->
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="운동 계획하기" />
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/radiogroup">
+
+                <!--커스텀 만들기 = https://curryyou.tistory.com/395-->
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:id="@+id/rdoshoulder"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:layout_marginRight="5dp"
+                    android:text="어깨"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:button="@null"
+                    android:id="@+id/rdochest"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:text="가슴"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:button="@null"
+                    android:id="@+id/rdoarm"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:text="팔"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:button="@null"
+                    android:id="@+id/rdoback"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:text="등"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:button="@null"
+                    android:id="@+id/rdoleg"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:text="하체"/>
+                <!--<RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:button="@null"
+                    android:id="@+id/rdobody"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:text="전신"/>-->
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:id="@+id/rdoabs"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:background="@drawable/selector_radio_button"
+                    android:textAlignment="center"
+                    android:text="복근"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="btn1" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn2"
+                android:text="btn2"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn3"
+                android:text="btn4"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn4"
+                android:text="btn4"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn5"
+                android:text="btn5"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn6"
+                android:text="btn6"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn7"
+                android:text="btn7"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn8"
+                android:text="btn8"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn9"
+                android:text="btn9"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn10"
+                android:text="btn10"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn11"
+                android:text="btn11"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn12"
+                android:text="btn12"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn13"
+                android:text="btn13"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn14"
+                android:text="btn14"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/btn15"
+                android:text="btn15"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    </ScrollView>
 
 </LinearLayout>

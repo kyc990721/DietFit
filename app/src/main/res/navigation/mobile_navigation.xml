@@ -16,9 +16,6 @@
         android:name="com.example.ditfit.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
-        <action
-            android:id="@+id/action_navigation_dashboard_to_workoutPlanChoose"
-            app:destination="@id/workoutPlanChoose" />
     </fragment>
 
     <fragment
@@ -26,9 +23,10 @@
         android:name="com.example.ditfit.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
-    <activity
-        android:id="@+id/workoutPlanChoose"
-        android:name="com.example.ditfit.WorkoutPlanChoose"
-        android:label="activity_workout_plan_choose"
-        tools:layout="@layout/activity_workout_plan_choose" />
+    <fragment
+        android:id="@+id/navigation_statistics"
+        android:name="com.example.ditfit.StaticsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
 </navigation>
