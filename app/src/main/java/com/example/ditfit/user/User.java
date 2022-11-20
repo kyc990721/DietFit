@@ -19,6 +19,14 @@ public class User {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getExercise() {
         return exercise;
     }
@@ -27,11 +35,20 @@ public class User {
         this.exercise = exercise;
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
 
     //값을 추가할때 쓰는 함수
-    public User(String name,String email,String uid) {
+    public User(String name,String email,String uid,String exercise) {
         this.name = name;
         this.email = email;
         this.uid = uid;
+        this.exercise = exercise;
     }
 }

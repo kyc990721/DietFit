@@ -20,15 +20,26 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.ditfit.HealthVideoActivity;
 import com.example.ditfit.R;
 import com.example.ditfit.databinding.FragmentDashboardBinding;
+import com.example.ditfit.user.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import devs.mulham.horizontalcalendar.HorizontalCalendar;
+import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
+
 public class DashboardFragment extends Fragment {
 
     String NameofExercise = "";
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
     private DashboardViewModel dashboardViewModel;
     private FragmentDashboardBinding binding;
 //    CalendarView calendarView;
@@ -42,6 +53,7 @@ public class DashboardFragment extends Fragment {
 //        Calendar calendar = Calendar.getInstance();
 //        return format.format(dateNow);
 //    }
+    int year, month, day;
     SearchView search;
     Button btn1;
     Button btn2;
@@ -100,6 +112,12 @@ public class DashboardFragment extends Fragment {
 //        final TextView textView = binding.textDashboard;
 //        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        Calendar startDate = Calendar.getInstance(); //시작날짜
+        startDate.add(Calendar.MONTH,-1);
+
+        Calendar endDate = Calendar.getInstance(); //종료날짜(현재날짜 + 1달 후)
+        endDate.add(Calendar.MONTH,1);
+
         search = (SearchView)root.findViewById(R.id.health_search);
         btn1 = (Button)root.findViewById(R.id.btn1);
         btn2 = (Button)root.findViewById(R.id.btn2);
@@ -123,6 +141,26 @@ public class DashboardFragment extends Fragment {
         rdoback = (RadioButton) root.findViewById(R.id.rdoback);
         rdoleg = (RadioButton) root.findViewById(R.id.rdoleg);
         rdoarm = (RadioButton) root.findViewById(R.id.rdoarm);
+
+        //가로달력 실행
+        HorizontalCalendar horizontalCalendar = new HorizontalCalendar.Builder(root, R.id.calendarView)
+                .range(startDate, endDate)
+                .datesNumberOnScreen(5)
+                .build();
+
+        //날짜 설정
+        year = startDate.get(Calendar.YEAR); //년
+        month = startDate.get(Calendar.MONTH)+1; //월
+        day = startDate.get(Calendar.DAY_OF_MONTH); //일
+
+        horizontalCalendar.setCalendarListener(new HorizontalCalendarListener() {
+            @Override
+            public void onDateSelected(Calendar date, int position) {
+                year = date.get(Calendar.YEAR);
+                month = date.get(Calendar.MONTH);
+                day = date.get(Calendar.DAY_OF_MONTH);
+            }
+        });
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -301,12 +339,16 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser(); //현재 로그인한 사용자 가져오기
+
         Intent intent = new Intent(getActivity(), HealthVideoActivity.class);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NameofExercise = (String) btn1.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn1.getText().toString());
                 startActivity(intent);
             }
         });
@@ -315,6 +357,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn2.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn2.getText().toString());
                 startActivity(intent);
             }
         });
@@ -323,6 +366,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn3.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn3.getText().toString());
                 startActivity(intent);
             }
         });
@@ -331,6 +375,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn4.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn4.getText().toString());
                 startActivity(intent);
             }
         });
@@ -339,6 +384,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn5.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn5.getText().toString());
                 startActivity(intent);
             }
         });
@@ -347,6 +393,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn6.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn6.getText().toString());
                 startActivity(intent);
             }
         });
@@ -355,6 +402,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn7.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn7.getText().toString());
                 startActivity(intent);
             }
         });
@@ -363,6 +411,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn8.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn8.getText().toString());
                 startActivity(intent);
             }
         });
@@ -371,6 +420,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn9.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn9.getText().toString());
                 startActivity(intent);
             }
         });
@@ -379,6 +429,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn10.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn10.getText().toString());
                 startActivity(intent);
             }
         });
@@ -387,6 +438,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn11.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn11.getText().toString());
                 startActivity(intent);
             }
         });
@@ -395,6 +447,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn12.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn12.getText().toString());
                 startActivity(intent);
             }
         });
@@ -403,6 +456,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn13.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn13.getText().toString());
                 startActivity(intent);
             }
         });
@@ -411,6 +465,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn14.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn14.getText().toString());
                 startActivity(intent);
             }
         });
@@ -419,6 +474,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 NameofExercise = (String) btn15.getText();
                 intent.putExtra("ExerciseName",NameofExercise);
+                addExercise(user.getUid().toString(), btn15.getText().toString());
                 startActivity(intent);
             }
         });
@@ -434,7 +490,10 @@ public class DashboardFragment extends Fragment {
 
 
     }
+    public void addExercise(String uid,String exercise){//운동추가, 나중에 날짜 선택까지 넣어서 수정 요함
 
+        databaseReference.child("Users").child(uid).child("Exercise").push().setValue(exercise); //유저 이름 데이터 추가
+    }
 
     @Override
     public void onDestroyView() {

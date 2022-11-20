@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
         //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능합니다.
 
         //User.java에서 선언했던 함수.
-        User user = new User(name,email,uid);
+        User user = new User(name,email,uid,"");
 
         databaseReference.child("Users").child(uid).child("Name").setValue(name); //유저 이름 데이터 추가
         databaseReference.child("Users").child(uid).child("Email").setValue(email); //유저 이메일 데이터 추가
