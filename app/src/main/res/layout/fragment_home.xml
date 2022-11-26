@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,25 +8,82 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DietFit"
+            android:textSize="30dp"></TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/black" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/Login"
+        android:id="@+id/testbtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="주변 헬스장 찾기" />
+
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그인" />
+        android:layout_marginTop="50dp"
+        android:text="걸음측정"
+        android:textSize="30dp" />
 
-    <Button
-        android:id="@+id/button"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="헬스동작으로 이동" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvStepCounttag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step Count : "
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/tvStepCountview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        android:textSize="25dp" />
+
+    <!--<com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerViewandroid:id="@+id/youtube_player_view"android:layout_width="match_parent"android:layout_height="wrap_content"app:videoId="S0Q4gqBUs7c"/>-->
+
+        <Button
+            android:id="@+id/Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="헬스동작으로 이동" />
+
+
 </LinearLayout>

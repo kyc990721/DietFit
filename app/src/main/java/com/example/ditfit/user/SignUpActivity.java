@@ -9,13 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ditfit.Board;
 import com.example.ditfit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -26,6 +30,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
+    public final static User userClass = new User();
+    public final static Board userBoard = new Board();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +85,25 @@ public class SignUpActivity extends AppCompatActivity {
         //여기에서 직접 변수를 만들어서 값을 직접 넣는것도 가능합니다.
 
         //User.java에서 선언했던 함수.
-        User user = new User(name,email,uid,"");
+        //User user = new User(name,email,uid,"");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                User user = dataSnapshot.child("User").child(uid).getValue(User.class); // 이는 해당 데이터를 바로 클래스 형태로 넣는 방법입니다 이때 getter는 필수 입니다
+
+                userClass.setName(user.getName()); // 전역으로 이 값을 사용하기 위해서 세팅을 해줍니다
+                userClass.setEmail(user.getEmail());
+                userClass.setUid(user.getUid());
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         databaseReference.child("Users").child(uid).child("Name").setValue(name); //유저 이름 데이터 추가
         databaseReference.child("Users").child(uid).child("Email").setValue(email); //유저 이메일 데이터 추가

@@ -26,6 +26,7 @@ public class Login extends AppCompatActivity {
     private Button buttonLogIn;
     private Button buttonSignUp;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,7 @@ public class Login extends AppCompatActivity {
                 }
             }
         };
+
     }
 
     public void loginUser(String email, String password) {
@@ -92,6 +94,7 @@ public class Login extends AppCompatActivity {
                     }
                 });
     }
+
 
     @Override
     protected void onStart() {

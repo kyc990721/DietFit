@@ -24,9 +24,9 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
-        android:id="@+id/navigation_statistics"
+        android:id="@+id/navigation_statics"
         android:name="com.example.ditfit.StaticsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:label="@string/title_statics"
+        tools:layout="@layout/fragment_statics" />
 
 </navigation>

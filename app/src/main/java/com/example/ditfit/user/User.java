@@ -1,5 +1,9 @@
 package com.example.ditfit.user;
 
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+
 public class User {
     String name; //유저 이름
     String email; //유저 이메일
@@ -51,4 +55,6 @@ public class User {
         this.uid = uid;
         this.exercise = exercise;
     }
+
+
 }
