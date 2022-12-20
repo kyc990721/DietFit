@@ -51,6 +51,8 @@ public class HomeFragment extends Fragment implements SensorEventListener{
 
     Button Login;
     Button MoveHealth;
+    Button MoveLocation;
+    Button MoveCalender;
     Button resetButton;
     TextView StepCountView;
     private SensorManager sensorManger;
@@ -71,6 +73,8 @@ public class HomeFragment extends Fragment implements SensorEventListener{
 
         Login = binding.Login;
         MoveHealth = binding.button;
+        MoveLocation = binding.button2;
+        MoveCalender = binding.button3;
         StepCountView = (TextView) root.findViewById(R.id.tvStepCountview);
 //        resetButton = (Button) root.findViewById(R.id.resetButton);
 
@@ -107,6 +111,20 @@ public class HomeFragment extends Fragment implements SensorEventListener{
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.navigation_dashboard,null,options);
+            }
+        });
+
+        MoveLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.navigation_notifications,null,options);
+            }
+        });
+
+        MoveCalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.navigation_statics,null,options);
             }
         });
 

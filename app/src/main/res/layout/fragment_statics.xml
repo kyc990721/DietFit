@@ -13,6 +13,8 @@
         android:id="@+id/select_day_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#bbddff"
+        android:textColor="@color/black"
         android:text="계획한 운동 확인하기" />
 
     <LinearLayout

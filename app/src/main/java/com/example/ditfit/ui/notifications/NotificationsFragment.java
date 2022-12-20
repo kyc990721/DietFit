@@ -44,19 +44,19 @@ public class NotificationsFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser(); //현재 로그인한 사용자 가져오기
 
-        database.getReference().child("Users").child(user.getUid()).child("Name").addValueEventListener(new ValueEventListener() {
-            @Override   //유저 이름 가져오기, child는 데이터베이스의 테이블 이름을 의미함.
-            // 이 코드의 경우에는 Users안의 uid안의 Name테이블에 있는 데이터값을 가지고 옴
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String CurrentUserName = snapshot.getValue(String.class);
-                NotificationUsername.setText(CurrentUserName);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        database.getReference().child("Users").child(user.getUid()).child("Name").addValueEventListener(new ValueEventListener() {
+//            @Override   //유저 이름 가져오기, child는 데이터베이스의 테이블 이름을 의미함.
+//            // 이 코드의 경우에는 Users안의 uid안의 Name테이블에 있는 데이터값을 가지고 옴
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                String CurrentUserName = snapshot.getValue(String.class);
+//                NotificationUsername.setText(CurrentUserName);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         return root;
     }
 

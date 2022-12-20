@@ -85,7 +85,7 @@ public class StaticsFragment extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
                 Year = Integer.toString(year);
-                Month = Integer.toString(month);
+                Month = Integer.toString(month+1);
                 Day = Integer.toString(dayOfMonth);
             }
         });
