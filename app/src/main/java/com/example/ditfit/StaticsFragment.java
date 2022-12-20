@@ -117,6 +117,11 @@ public class StaticsFragment extends Fragment {
                             textView3.setVisibility(View.VISIBLE);
                             textView4.setVisibility(View.VISIBLE);
                             textView5.setVisibility(View.VISIBLE);
+                            Select_Day_Exercise.setVisibility(View.VISIBLE);
+                            Select_Day_Kg.setVisibility(View.VISIBLE);
+                            Select_Day_Set.setVisibility(View.VISIBLE);
+                            Select_Day_Number.setVisibility(View.VISIBLE);
+                            Select_Day_WalkCount.setVisibility(View.VISIBLE);
                             Exercise = user.getExercise();
                             kg = user.getKg();
                             set = user.getSet();
