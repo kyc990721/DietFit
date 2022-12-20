@@ -38,8 +38,8 @@ public class NotificationsFragment extends Fragment {
         View root = binding.getRoot();
         NotificationUsername= binding.UserName;
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+//        final TextView textView = binding.textNotifications;
+//        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser(); //현재 로그인한 사용자 가져오기

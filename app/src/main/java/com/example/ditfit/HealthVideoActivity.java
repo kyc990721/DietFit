@@ -3,6 +3,8 @@ package com.example.ditfit;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class HealthVideoActivity extends Activity {
     TextView exerciseName,Ex_explain,Warning_tx;
     YouTubePlayerView youTubePlayer;
+    Button Popup_button;
+    String NameofExercise = "";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,8 @@ public class HealthVideoActivity extends Activity {
         Ex_explain = (TextView) findViewById(R.id.explain);
         Warning_tx = (TextView) findViewById(R.id.warningText);
         youTubePlayer = (YouTubePlayerView)findViewById(R.id.youtube_player_view);
+        Popup_button = (Button)findViewById(R.id.popup);
+
 
 
         /* 전체화면 나중에 할것 https://onlyfor-me-blog.tistory.com/526
@@ -42,6 +48,15 @@ public class HealthVideoActivity extends Activity {
 
 
         Intent intent = getIntent();
+        Intent popupintent = new Intent(getApplicationContext(),HealthAddActivity.class);
+
+        Popup_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupintent.putExtra("ExerciseName",intent.getStringExtra("ExerciseName"));
+                startActivity(popupintent);
+            }
+        });
 
         switch (intent.getStringExtra("ExerciseName")){
             //어깨

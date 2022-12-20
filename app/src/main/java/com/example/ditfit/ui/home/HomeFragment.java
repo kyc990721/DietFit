@@ -1,6 +1,10 @@
 package com.example.ditfit.ui.home;
 
+import static android.content.Context.ALARM_SERVICE;
+
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,17 +28,17 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
+import com.example.ditfit.AddWalkCount;
 import com.example.ditfit.R;
+import com.example.ditfit.WalkCount;
 import com.example.ditfit.user.Login;
 import com.example.ditfit.databinding.FragmentHomeBinding;
-import com.example.ditfit.user.User;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import java.util.Calendar;
+import android.app.Application;
 
 public class HomeFragment extends Fragment implements SensorEventListener{
 
@@ -44,6 +48,7 @@ public class HomeFragment extends Fragment implements SensorEventListener{
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference mDatabase = database.getReference();
 
+
     Button Login;
     Button MoveHealth;
     Button resetButton;
@@ -51,9 +56,9 @@ public class HomeFragment extends Fragment implements SensorEventListener{
     private SensorManager sensorManger;
     private Sensor stepCountSensor;
 
-    private int currentSteps = 0;
+    //private int currentSteps = 0;
     //리스너가 등록되고 난 후의 step count
-    private int mCounterSteps = 0;
+    //private int mCounterSteps = 0;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,7 +72,7 @@ public class HomeFragment extends Fragment implements SensorEventListener{
         Login = binding.Login;
         MoveHealth = binding.button;
         StepCountView = (TextView) root.findViewById(R.id.tvStepCountview);
-        resetButton = (Button) root.findViewById(R.id.resetButton);
+//        resetButton = (Button) root.findViewById(R.id.resetButton);
 
         /*final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -87,6 +92,8 @@ public class HomeFragment extends Fragment implements SensorEventListener{
                 .setPopEnterAnim(R.anim.fade_in)
                 .setPopExitAnim(R.anim.fade_out)
                 .build();
+
+
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,18 +130,36 @@ public class HomeFragment extends Fragment implements SensorEventListener{
         }
 
         // 리셋 버튼 추가 - 리셋 기능
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 현재 걸음수 초기화
-                currentSteps = 0;
-                mCounterSteps = 0;
-                StepCountView.setText(String.valueOf(currentSteps));
-            }
-        });
+//        resetButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // 현재 걸음수 초기화
+//                WalkCount.currentSteps = 0;
+//                WalkCount.mCounterSteps = 0;
+//                StepCountView.setText(String.valueOf(WalkCount.currentSteps));
+//            }
+//        });
+
+        AlarmManager resetAlarmManager = (AlarmManager)getActivity().getSystemService(ALARM_SERVICE);
+        Intent resetIntent = new Intent(getActivity(), AddWalkCount.class);
+        PendingIntent resetSender = PendingIntent.getBroadcast(getActivity(), 0, resetIntent, PendingIntent.FLAG_MUTABLE);
+
+        // 자정 시간
+        Calendar resetCal = Calendar.getInstance();
+        resetCal.setTimeInMillis(System.currentTimeMillis());
+        resetCal.set(Calendar.HOUR_OF_DAY, 0);
+        resetCal.set(Calendar.MINUTE,0);
+        resetCal.set(Calendar.SECOND, 0);
+
+        //다음날 0시에 맞추기 위해 24시간을 뜻하는 상수인 AlarmManager.INTERVAL_DAY를 더해줌.
+        resetAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, resetCal.getTimeInMillis()
+                +AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, resetSender);
+
+
 
         return root;
     }
+
 
     @Override
     public void onStart() {
@@ -164,30 +189,31 @@ public class HomeFragment extends Fragment implements SensorEventListener{
         if(sensorEvent.sensor.getType() == Sensor.TYPE_STEP_COUNTER){
 
             //stepcountsenersor는 앱이 꺼지더라도 초기화 되지않는다. 그러므로 우리는 초기값을 가지고 있어야한다.
-            if (mCounterSteps < 1) {
+            if (WalkCount.mCounterSteps < 1) {
                 // initial value
-                mCounterSteps = (int) sensorEvent.values[0];
+                WalkCount.mCounterSteps = (int) sensorEvent.values[0];
             }
             //리셋 안된 값 + 현재값 - 리셋 안된 값
-            currentSteps = (int) sensorEvent.values[0] - mCounterSteps;
-            StepCountView.setText(Integer.toString(currentSteps));
-            Log.i("log: ", "New step detected by STEP_COUNTER sensor. Total step count: " + currentSteps );
+            WalkCount.currentSteps = (int) sensorEvent.values[0] - WalkCount.mCounterSteps;
+            StepCountView.setText(Integer.toString(WalkCount.currentSteps));
+            Log.i("log: ", "New step detected by STEP_COUNTER sensor. Total step count: " + WalkCount.currentSteps );
         }
 
-        /*// 걸음 센서 이벤트 발생시
+        // 걸음 센서 이벤트 발생시
         if(sensorEvent.sensor.getType() == Sensor.TYPE_STEP_COUNTER){
             if(sensorEvent.values[0] == 1.0f){
                 // 센서 이벤트가 발생할때 마다 걸음수 증가
-                currentSteps++;
-                StepCountView.setText(String.valueOf(currentSteps));
+                WalkCount.currentSteps++;
+                StepCountView.setText(String.valueOf(WalkCount.currentSteps));
             }
-        }*/
+        }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
+
 
 
     @Override

@@ -10,12 +10,14 @@
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout-w1240dp/loading.xml" value="0.11796875" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout-w936dp/activity_sign_up.xml" value="0.27049180327868855" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_detail.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_health_add.xml" value="0.33" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_health_video.xml" value="0.33" />
-        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_loading.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_loading.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_register.xml" value="0.3515625" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_sign_up.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_step_count.xml" value="0.265625" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_workout_plan_choose.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_write.xml" value="0.17806484295845998" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/content_main.xml" value="0.17806484295845998" />
@@ -24,7 +26,7 @@
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/fragment_notifications.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/fragment_statics.xml" value="0.3386627906976744" />
-        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/maintitle.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/maintitle.xml" value="0.25" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2796296296296296" />
       </map>
     </option>
