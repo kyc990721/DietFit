@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/drawable-anydpi/ic_action_calender.xml" value="0.1325" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/drawable-anydpi/ic_action_location.xml" value="0.2215" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2215" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/drawable-v24/selector_radio_button.xml" value="0.2215" />
@@ -17,7 +18,7 @@
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout-w1240dp/loading.xml" value="0.11796875" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout-w936dp/activity_sign_up.xml" value="0.27049180327868855" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_detail.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_health_add.xml" value="0.33" />
+        <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_health_add.xml" value="0.25" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_health_video.xml" value="0.33" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_loading.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/kjmij/AndroidStudioProjects/DitFit2/app/src/main/res/layout/activity_login.xml" value="0.33" />

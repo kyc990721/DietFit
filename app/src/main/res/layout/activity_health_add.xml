@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:background="#ff7a00"
+            android:background="#aaddff"
             android:gravity="center"
             android:text="Notice"
             android:textColor="#fff"
@@ -42,10 +42,10 @@
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFE400"
+            android:background="#C5E1DE"
             app:selectorColor="#86E57F"
             app:textColorNormal="#FFFFFF"
-            app:textColorSelected="#86E57F"
+            app:textColorSelected="#0067A3"
             tools:ignore="SpeakableTextPresentCheck">
 
         </devs.mulham.horizontalcalendar.HorizontalCalendarView>
@@ -122,7 +122,7 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="확인"
-            android:textColor="#ff7a00"
+            android:textColor="@color/black"
             android:textSize="15sp" />
     </LinearLayout>
     <!--// 닫기 버튼 -->

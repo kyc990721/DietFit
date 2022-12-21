@@ -91,7 +91,7 @@
                 android:layout_height="match_parent"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:text="Button" />
+                android:text="계획하기" />
 
 
         </LinearLayout>
